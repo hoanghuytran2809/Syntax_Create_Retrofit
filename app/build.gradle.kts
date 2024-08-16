@@ -68,13 +68,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     //retrofit,okhttp3,logging
-    implementation(libs.retrofit.v290)
-    implementation(libs.retrofit2.converter.gson)
-    implementation(libs.retrofit2.kotlin.coroutines.adapter)
-    implementation(libs.okhttp)
-    implementation(libs.okhttp3.logging.interceptor)
-    implementation(libs.okhttp.bom)
-    implementation(libs.google.gson)
-
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.10.0")
 
 }

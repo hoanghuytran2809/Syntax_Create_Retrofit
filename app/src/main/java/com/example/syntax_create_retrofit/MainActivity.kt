@@ -1,6 +1,7 @@
 package com.example.syntax_create_retrofit
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -26,6 +27,7 @@ class MainActivity : ComponentActivity() {
             val request = Network.createRetrofit("https://api.restful-api.dev/").create(Demo::class.java).getPost(1)
             if (request.isSuccessful){
                 request.body()?.userId // lấy data từ server ô
+                Log.d("result",request.body().toString())// em xem data tra ve tu server o day.
             }
         }
         enableEdgeToEdge()
