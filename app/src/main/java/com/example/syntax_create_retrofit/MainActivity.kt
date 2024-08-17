@@ -12,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.syntax_create_retrofit.database.AndroidDatabase
 import com.example.syntax_create_retrofit.network.Demo
 import com.example.syntax_create_retrofit.network.Network
 import com.example.syntax_create_retrofit.ui.theme.Syntax_Create_RetrofitTheme
@@ -24,12 +25,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         //Bước 4: Tạo coroutine để lấy data từ sever trả về
         CoroutineScope(Dispatchers.IO).launch {
+            AndroidDatabase.getDatabase().resourceAppDao().getAll()
+
             val request = Network.createRetrofit("https://api.restful-api.dev/").create(Demo::class.java).getPost()
             if (request.isSuccessful){
                 request.body() // lấy data từ server ô
                 Log.d("result",request.body().toString())// em xem data tra ve tu server o day.
             }
         }
+
         enableEdgeToEdge()
         setContent {
 
