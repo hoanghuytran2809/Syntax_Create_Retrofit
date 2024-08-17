@@ -27,7 +27,7 @@ object Network {
             throw RuntimeException("Error creating Retrofit instance", e)
         }
     }
-    fun httpLoggingInterceptor(): HttpLoggingInterceptor {
+    private fun httpLoggingInterceptor(): HttpLoggingInterceptor {
         val httpLoggingInterceptor =
             HttpLoggingInterceptor { message ->
                 Log.d("http:",message)

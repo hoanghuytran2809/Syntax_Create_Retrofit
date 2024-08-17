@@ -24,9 +24,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         //Bước 4: Tạo coroutine để lấy data từ sever trả về
         CoroutineScope(Dispatchers.IO).launch {
-            val request = Network.createRetrofit("https://api.restful-api.dev/").create(Demo::class.java).getPost(1)
+            val request = Network.createRetrofit("https://api.restful-api.dev/").create(Demo::class.java).getPost()
             if (request.isSuccessful){
-                request.body()?.userId // lấy data từ server ô
+                request.body() // lấy data từ server ô
                 Log.d("result",request.body().toString())// em xem data tra ve tu server o day.
             }
         }
